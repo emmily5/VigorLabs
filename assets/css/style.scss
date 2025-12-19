@@ -1,11 +1,10 @@
-// Paleta de cores do Virilis Science (Valores ajustados para o Logo)
-$color-deep-navy-blue: #1e3a8a; // Azul marinho mais rico
-$color-alert-red: #dc2626; // Vermelho vibrante (mais profissional)
-$color-health-green: #059669; // Verde esmeralda (saúde, natureza)
-$color-light-teal: #e2e8f0; // Cinza azulado claro (fundo)
+$color-deep-navy-blue: #1b2237; 
+$color-alert-red: #b71d1d;      
+$color-health-green: #25775c;   
+$color-light-teal: #f0fdfa;     
 $color-white: #ffffff;
-$color-mid-gray: #64748b; // Cinza médio atualizado
-$color-dark-gray: #1e293b; // Cinza escuro quase preto
+$color-mid-gray: #94a3b8;       
+$color-dark-gray: #0f172a;      
 * {
   margin: 0;
   padding: 0;
@@ -124,28 +123,37 @@ a {
   }
 }
 
+
 .hero {
   background: linear-gradient(
       rgba($color-deep-navy-blue, 0.1),
       rgba($color-deep-navy-blue, 0.1)
     ),
     $color-light-teal;
-  padding: 3.5rem 0;
+    padding: 5rem 0; 
+  
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  text-align: center; 
 
   .hero-content {
-    max-width: 540px;
+    max-width: 800px; 
+    margin: 0 auto;  
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
+    justify-items: center; 
 
     h1 {
-      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-size: clamp(2.2rem, 5vw, 3.5rem); 
       color: $color-deep-navy-blue;
-      line-height: 1.1;
+      line-height: 1.2;
     }
 
     p {
       color: $color-dark-gray;
-      font-size: 1.05rem;
+      font-size: 1.15rem;
+      line-height: 1.6;
     }
   }
 }
