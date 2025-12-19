@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Virilis Science</title>
+    <meta
+      name="description"
+      content="Virilis Science is your specialized blog for men's health. Find reliable information on Erectile Dysfunction (ED), sexual performance, male longevity, and quality products."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-top">
+        <p>
+          Science-backed insights for maximizing male health and performance.
+        </p>
+      </div>
+      <div class="header-main">
+        <div class="container">
+          <a class="brand" href="/">
+            <img src="assets/img/logo.png" alt="" />
+          </a>
+          <nav class="primary-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="products">Products</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-content">
+        <div class="container">
+          <header class="page-header">
+            <h1>Contact Us</h1>
+            <p>Connect With Our Customer Success Team</p>
+          </header>
+
+          <div class="content-wrapper">
+            <p>
+              We are here to help you reach your health goals! If you have any
+              questions, concerns, or wish to provide feedback, please contact
+              us with the information below.
+            </p>
+
+            <h2>Contacting Support</h2>
+
+            <p>
+              <strong>Email:</strong>
+              <a
+                href="mailto:info@virilisscience.com"
+                id="support-email"
+                >info@virilisscience.com</a
+              >
+            </p>
+
+            <p id="phone-section" style="display: none">
+              <strong>Phone:</strong> <span id="support-phone"></span>
+            </p>
+
+            <p>
+              Our team works around the clock to provide the best customer
+              support possible. If you contact us by phone or chat, you should
+              get a response from a live agent within a few minutes. If you
+              contact us by email, expect a response within 24 hours or less.
+            </p>
+
+            <p>
+              Thank you for choosing
+              <strong
+                ><span id="company-name">Health Alert Newsletter</span></strong
+              >!
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Get URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const productParam = urlParams.get("product");
+      const emailParam = urlParams.get("email");
+      const phoneParam = urlParams.get("phone");
+
+      // Update company name - convert product param to readable format if needed
+      let companyName = "Health Alert Newsletter";
+      if (productParam) {
+        // Convert from slug format (e.g., 'my-product') to title case
+        companyName = productParam
+          .split("-")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+      }
+      document.getElementById("company-name").textContent = companyName;
+
+      // Update email address
+      const supportEmail = emailParam || "info@virilisscience.com";
+      const emailLink = document.getElementById("support-email");
+      emailLink.href = "mailto:" + supportEmail;
+      emailLink.textContent = supportEmail;
+
+      // Show phone if provided
+      if (phoneParam) {
+        document.getElementById("phone-section").style.display = "block";
+        document.getElementById("support-phone").textContent = phoneParam;
+      }
+
+      // Update footer email
+      const footerEmailEl = document.getElementById("footer-email");
+      if (footerEmailEl) {
+        footerEmailEl.href = "mailto:" + supportEmail;
+        footerEmailEl.textContent = supportEmail;
+      }
+
+      // Update footer phone if provided
+      const footerPhoneContainer = document.getElementById(
+        "footer-phone-container"
+      );
+      const footerPhone = document.getElementById("footer-phone");
+      if (phoneParam && footerPhoneContainer && footerPhone) {
+        footerPhoneContainer.style.display = "inline";
+        footerPhone.textContent = phoneParam;
+      }
+    </script>
+  </body>
+</html>

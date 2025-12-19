@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disclosure - Virilis Science</title>
+    <meta
+      name="description"
+      content="Virilis Science is your specialized blog for men's health. Find reliable information on Erectile Dysfunction (ED), sexual performance, male longevity, and quality products."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-top">
+        <p>
+          Science-backed insights for maximizing male health and performance.
+        </p>
+      </div>
+      <div class="header-main">
+        <div class="container">
+          <a class="brand" href="/">
+            <img src="assets/img/logo.png" alt="" />
+          </a>
+          <nav class="primary-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="products">Products</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-content">
+        <div class="container">
+          <header class="page-header">
+            <h1>Disclosure</h1>
+          </header>
+
+          <div class="content-wrapper">
+            <p>
+              <strong
+                ><span id="company-name">Health Alert Newsletter</span></strong
+              >
+              firmly believes in all the products praised by its editors. We
+              would like to disclose some basic facts about some of the products
+              listed on our website which receive praise.
+            </p>
+
+            <p>
+              At
+              <strong
+                ><span id="company-name-2"
+                  >Health Alert Newsletter</span
+                ></strong
+              >, we employ a comprehensive evaluation system to analyze and
+              measure the full value of products, by looking at the ingredients,
+              safety, projected effectiveness, return policies, and overall
+              customer satisfaction. We also collect research from the latest
+              related studies and clinical trials. Our method is known as the
+              <strong
+                ><span id="company-name-3">Health Alert Newsletter</span>
+                Ranking System</strong
+              >. For more information on the ranking system, please e-mail
+              <a
+                href="mailto:info@virilisscience.com"
+                id="support-email"
+                >info@virilisscience.com</a
+              >.
+            </p>
+
+            <p>
+              Under Federal Regulation, the Federal Trade Commission requires
+              disclosures on any relationship which provides any compensation at
+              any time.
+              <strong
+                ><span id="company-name-4"
+                  >Health Alert Newsletter</span
+                ></strong
+              >
+              and its owners have a compensatory or proprietary relationship
+              with some product manufacturers featured on the website and
+              therefore the owners of
+              <strong
+                ><span id="company-name-5"
+                  >Health Alert Newsletter</span
+                ></strong
+              >
+              benefit from the sale of certain products through the website. All
+              views and opinions expressed in the ratings are solely those of
+              the editors/authors and the
+              <strong
+                ><span id="company-name-6"
+                  >Health Alert Newsletter</span
+                ></strong
+              >
+              Reviewers who vote and share their ranking or review based on
+              personal experience with a product displayed on
+              <strong
+                ><span id="company-name-7"
+                  >Health Alert Newsletter</span
+                ></strong
+              >. Customer satisfaction and results are based on users' personal
+              experiences collected on this page and do not necessarily reflect
+              typical results of using these products. Any product claim,
+              statistic, quote or other representation about a product or
+              service should be verified with the manufacturer, provider or
+              party in question.
+            </p>
+
+            <p>
+              The statements on
+              <strong
+                ><span id="company-name-8"
+                  >Health Alert Newsletter</span
+                ></strong
+              >
+              have not been reviewed by the Food and Drug Administration. No
+              products mentioned on this website are intended to diagnose,
+              treat, cure, or prevent any diseases. This website is not a
+              substitution for medical diagnosis or treatment.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Get URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const productParam = urlParams.get("product");
+      const emailParam = urlParams.get("email");
+      const phoneParam = urlParams.get("phone");
+
+      // Update company name - convert product param to readable format if needed
+      let companyName = "Health Alert Newsletter";
+      if (productParam) {
+        // Convert from slug format (e.g., 'my-product') to title case
+        companyName = productParam
+          .split("-")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+      }
+
+      // Update all company name instances
+      for (let i = 1; i <= 8; i++) {
+        const element = document.getElementById(
+          "company-name" + (i === 1 ? "" : "-" + i)
+        );
+        if (element) {
+          element.textContent = companyName;
+        }
+      }
+
+      // Update email address
+      const supportEmail = emailParam || "info@virilisscience.com";
+      const emailLink = document.getElementById("support-email");
+      emailLink.href = "mailto:" + supportEmail;
+      emailLink.textContent = supportEmail;
+
+      // Update footer email
+      const footerEmailEl = document.getElementById("footer-email");
+      if (footerEmailEl) {
+        footerEmailEl.href = "mailto:" + supportEmail;
+        footerEmailEl.textContent = supportEmail;
+      }
+
+      // Update footer phone if provided
+      const footerPhoneContainer = document.getElementById(
+        "footer-phone-container"
+      );
+      const footerPhone = document.getElementById("footer-phone");
+      if (phoneParam && footerPhoneContainer && footerPhone) {
+        footerPhoneContainer.style.display = "inline";
+        footerPhone.textContent = phoneParam;
+      }
+    </script>
+  </body>
+</html>
